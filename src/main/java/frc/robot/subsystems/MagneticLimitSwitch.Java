@@ -1,11 +1,16 @@
+package frc.robot.subsystems;
+
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-DigitalInput toplimitSwitch = new DigitalInput(0);
 
-public class MagneticLimisSwitch extends SubsystemBase {
+public class MagneticLimitSwitch extends SubsystemBase {
+    private final DigitalInput toplimitSwitch ;
 
-    public MagneticLimisSwitch(){
-
+    public MagneticLimitSwitch(){
+        toplimitSwitch = new DigitalInput(0);
     }
 
     @Override
@@ -19,10 +24,10 @@ public class MagneticLimisSwitch extends SubsystemBase {
 
         if (toplimitSwitch.get()) {
             // We are going up and top limit is tripped so stop
-            SmartDashboard.putData("magnetic", "top");
+            SmartDashboard.putString("magnetic", "top");
 
         }else{
-            SmartDashboard.putData("magnetic", "No");
+            SmartDashboard.putString("magnetic", "No");
         }
     }
 
